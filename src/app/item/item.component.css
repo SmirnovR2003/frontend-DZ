@@ -1,0 +1,18 @@
+.task
+{
+    font-style: normal;
+    font-size: 20px;
+    color: rgb(232,162,54);
+    background: rgb(33, 33, 33);
+    border-radius: 5px;
+    border: solid 2px rgb(0, 0, 0);
+}
+.button
+{
+    background-color: rgb(91, 255, 91);
+    font-size: 20px;
+}
+.button_red
+{
+    background-color: rgb(255, 57, 57);
+}
