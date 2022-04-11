@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 
 export interface Task{
   id: number,
-  name: string
+  name: string,
+  isDone: boolean,
 }
 
 @Component({
@@ -14,10 +15,10 @@ export interface Task{
 
 export class AppComponent {
   
- 
   tasks: Array<Task> = [{
     id: 1, 
-    name: "Go to cinema"}
+    name: "Go to cinema",
+    isDone: false}
   ]
 
   completedTasks: Array<Task> = []
@@ -26,7 +27,8 @@ export class AppComponent {
   addTask(myForm: NgForm): void{
     this.tasks.push({
       id: this.taskId,
-      name: myForm.value.task});
+      name: myForm.value.task,
+      isDone: false});
     this.taskId++;  
   }
 
@@ -40,6 +42,7 @@ export class AppComponent {
 
   onComplete(id: number): void{
     let completedIndex = this.tasks.findIndex(task => task.id == id); 
+    this.tasks[completedIndex].isDone = true;
     this.completedTasks.push(this.tasks[completedIndex]);
     this.tasks = this.tasks.filter(task => task.id != id);
   }
